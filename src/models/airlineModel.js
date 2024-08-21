@@ -34,6 +34,10 @@ const airlineSchema = new mongoose.Schema(
       type: Number,
       min: [1, "Fleet size must be at least 1"],
     },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

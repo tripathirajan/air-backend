@@ -15,7 +15,7 @@ const login = async (req, res) => {
       .json({ success: false, message: "Parameter missing!" });
   }
   const userInfo = await userModel.findOne({ email: email });
-  if (!userInfo || !userModel.hasPasswordMatched(password)) {
+  if (!userInfo || !userInfo.hasPasswordMatched(password)) {
     return res.status(HttpStatusCode.UNAUTHORIZED).json({
       success: false,
       message: "Incorrect email or password!",
